@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Index</title>
+<% include ./inc/header.ejs %>
+
+   <% include ./inc/navbar.ejs %>
+
+   <style>
+* {
+   text-align: center;
+}
+
+body{
+   background-color: lightgoldenrodyellow;
+
+}
+
+.jumbotron {
+   background-color:  lightgoldenrodyellow;
+}
+
+   </style>
+
+</head>
+
+<body>
+
+   <div class="container" >
+   <div class="header">
+
+
+   <div class="jumbotron"></div>
+      <h1>WELCOME!!</h1>
+      <h2>더 많은 내용을 보기 위해 로그인 해주세요</h2>
+   </div>
+   
+
+<div>
+   <h3>Are you our memeber?</h3><br>
+
+   <form action="/login_form" method="GET">
+   <input type= "submit" value="Log In">
+   </form>
+</div>
+
+<br>
+<br>
+
+<div>
+   <h3>Do you need to register?</h3><br>
+
+   <form action="/signup_form" method="GET">
+      <input type= "submit" value="Sign Up">
+      </form>
+</div>
+
+
+
+  </div>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+</body>
+</html>

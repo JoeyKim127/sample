@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+       <!-- Latest compiled and minified CSS -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+       <!-- jQuery library -->
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   
+       <!-- Popper JS -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   
+       <!-- Latest compiled JavaScript -->
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+       integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+   <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+   
+       <title>SIGN-IN</title>
+
+<style>
+        body {
+            background: url('../images/image11.jpg');
+        }
+
+        .container-fluid {
+            height: 100%;
+        }
+
+        .signupform {
+            text-align: center;
+            border: 1px solid black;
+            margin-left: 30%;
+            margin-top: 50px; 
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            width: 500px;
+            height: 550px;
+        }
+
+
+        .close {
+            float: right;
+            color: white;
+        }
+
+
+        .done-btn {
+            background-color: #45B39D;
+            border-style: 0px solid;
+        }
+
+
+        h1, h2 {
+            margin-top: 50px;
+            text-align: center;
+            color: tomato;
+            font-family: Arial;
+            font-size: 30px;
+        }
+
+
+        input {
+            padding: 10px;
+            border: none;
+            width: 90%;
+           
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="container">
+
+    <h1>Welcome to Our Website!</h1>
+    <h2>Please fill in the form</h2>
+
+    <div class="signupform" >
+
+            <form action="/" method="GET">
+                <button type="btn btn-basic" class="close"><i class="far fa-times-circle"></i></button>
+            </form>
+
+
+        <form action="/mysql/adduser2" method="POST">
+        
+        User Id <input type="text" value="userid" name="userid" onfocus="this.value=''"><br><br><br>
+        Password <input type="password" value="password" name="password" onfocus="this.value=''"><br><br><br>
+        Name <br><input type="text" value="name" name="name" onfocus="this.value=''"><br><br><br>
+        E-mail Address <input type="text" value="email" name="email" onfocus="this.value=''"><br><br><br>
+
+        <input type="submit" value="Done"  class="done-btn">
+        <br>
+
+        </form>
+
+
+     </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

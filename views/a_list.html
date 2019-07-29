@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <title>User List!</title>
+
+    <% include ./inc/navbar.ejs%>
+
+    <style>
+        tr:nth-child(even) {
+            background-color: whitesmoke;
+        }
+
+        .jumbotron {
+   background-color: lightblue;
+}
+
+body{
+   background-color: aliceblue;
+
+}
+
+        /* .jumbotron {
+            margin-left: 30px;
+            margin-right: 30px;
+            padding: 40px;
+            color: rosybrown;
+        } */
+
+        .container {
+            margin-left: 30px;
+            margin-right: 30px;
+            padding: 40px;
+        }
+
+    </style>
+
+
+<script>
+
+
+
+// function searchByFirstName() {
+
+//     let searchText = $('#searchtext1').val();
+//     let $target = $('#user');
+
+//     $.ajax({
+//         type: 'post',
+//         url : 'api/filter',
+//         datatype: 'json',
+//         data: {"searchText":searchText},
+//         success: function(item) {
+//             console.log('success');
+//             console.log(item);
+
+//            // target update
+//            $target.empty();
+//             $.each(user, function(i,item) {
+//                  $target.append(`
+                 
+//                  <tr>
+//                     <th>Number</th>
+//                     <th>FirstName</th>
+//                     <th>DoB</th>
+//                     <th>Nationality</th>
+//                     <th>Email</th>
+//                     <th>numOfVisits</th>
+//                 </tr>
+
+//                      <tr>
+                    
+//                     <td>${i+1}</td>
+//                     <td>${item.FirstName}</td>
+//                     <td>${item.DoB}</td>
+//                     <td>${item.Nationality}</td>
+//                     <td>${item.Email}</td>
+//                     <td>${item.numOfVisits}</td>
+//                     </tr>
+//                     `);
+//                    })
+//                }
+//            });
+//        }
+
+
+function searchByCombo() {
+
+
+    let searchType = $('#combo option:selected').val();
+    let searchText = $('#searchtext1').val();
+    let $target = $('#user');
+    
+   
+
+    $.ajax({
+        type: 'post',
+        url : 'api/filter',
+        datatype: 'json',
+        data: {
+            "searchText":searchText,
+            "searchType":searchType
+        },
+
+        success: function(user) {
+            console.log('success');
+            console.log(user);
+
+
+
+            // target update
+            $target.empty();
+            $.each(user, function(i,item) {
+                 $target.append(`
+                 
+                 <tr>
+                    <th>Number</th>
+                    <th>FirstName</th>
+                    <th>DoB</th>
+                    <th>Nationality</th>
+                    <th>Email</th>
+                    <th>numOfVisits</th>
+                </tr>
+
+                     <tr>
+                    
+                    <td>${i+1}</td>
+                    <td>${item.FirstName}</td>
+                    <td>${item.DoB}</td>
+                    <td>${item.Nationality}</td>
+                    <td>${item.Email}</td>
+                    <td>${item.numOfVisits}</td>
+                    </tr>
+                    `);
+                   })
+               }
+           });
+       }
+
+
+</script>
+
+
+
+
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="jumbotron">
+           
+            
+            <h2>어서오세요 [ <%= user.userid%> 님]!!</h2>
+
+ <h1>User List</h1><br>
+<div>
+
+<form method="POST" name="regform" class="form-inline" >
+    <input type="text" name="FirstName" value="First Name" onfocus="this.value=''">
+    <input type="text" name="DoB" value="Date of Birth" onfocus="this.value=''">
+    <input type="text" name="Nationality" value="Nationality" onfocus="this.value=''">
+    <input type="text" name="Email" value="Email" onfocus="this.value=''">
+    <input type="text" name="numOfVisits" value="Number of Visits" onfocus="this.value=''">
+    <input type="button" id="submit" name="submit" value="Submit" > 
+</form><br>
+
+</div>
+
+
+<div>
+        <!-- <input type="text" id="searchtext1" placeholder=" First Name" value="" >
+        <button class="btn btn-primary" id="btn_search1" onclick="searchByFirstName()">Search</button>
+
+
+        <input type="text" id="searchtext2" placeholder="Nationality " value="" >
+        <button class="btn btn-primary" id="btn_search2" onclick="searchByNationality()">Search</button> -->
+
+<select id="combo">
+
+        <option value="FirstName">First Name</option>
+        <option value="Date of Birth">Date of Birth</option>
+        <option value="Nationality">Nationality</option>
+        <option value="Email">Email</option>
+        <option value="Number of Visits">Number of Visits</option> &nbsp;&nbsp;
+
+        
+    
+</select>
+
+<input type="text" id="searchtext1" placeholder=" search..." value="" >
+        <button class="btn btn-primary" id="btn_search1" onclick="searchByCombo()">Search</button>
+
+     </div>
+
+</div>
+
+
+     <div>
+            <table class='table table-striped' id="user">
+                <thead>
+
+                <tr>
+                    <th>FirstName</th>
+                    <th>DoB</th>
+                    <th>Nationality</th>
+                    <th>Email</th>
+                    <th>numOfVisits</th>
+                </tr>
+            </thead>
+            <tbody  id="user">
+
+            </tbody>
+
+                </table>
+                </div>
+                
+
+<!-- ajax를 이용해 자료 표 안에 넣기 -->
+    <script>
+
+
+        function serializeObject($form) {
+            var unindexed_array = $form.serializeArray();
+            var indexed_array = {};
+
+            $.map(unindexed_array, function (n, i) {
+                indexed_array[n['name']] = n['value'];
+            });
+
+            return indexed_array;
+        }
+
+
+        $(function () {
+
+
+            $.ajax({
+                type: 'GET',
+                url: '/userdata',
+                datatype: 'json',
+                success: function (data) {
+                    console.log('success');
+                    console.log(data);
+                    $.each(data, function (i, item) {
+                        $("#user").append(`
+
+                <tr>
+    
+                <td>${item.FirstName}</td>
+                <td>${item.DoB}</td>
+                <td>${item.Nationality}</td>
+                <td>${item.Email}</td>
+                <td>${item.numOfVisits}</td>
+                </tr>`
+                        ).trigger("create");
+                    });
+                },
+                error: function (err) {
+                    console.log('err');
+                }
+            });
+
+        
+
+        $('#submit').click(function () {
+
+            let newData = serializeObject($('form[name=regform]'));;
+
+            $.ajax({
+                type: 'POST',
+                url: '/api/regcar',
+                dataType: 'json',
+                data: newData,
+                success: function (data) {
+                    console.log('success');
+                    console.log(data);
+                    $.each(data, function (i, item) {
+                    $("#user").append(`
+
+            
+
+                <tr>
+    
+                <td>${item.FirstName}</td>
+                <td>${item.DoB}</td>
+                <td>${item.Nationality}</td>
+                <td>${item.Email}</td>
+                <td>${item.numOfVisits}</td>
+                </tr>` )
+            });
+                },
+                error: function (err) {
+                    console.log('err');
+                }
+            });
+        })
+})
+
+    </script>
+<% include ./inc/footer.ejs %>
+</body>
+
+</html>

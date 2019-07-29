@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-
+   Compatible" content="ie=edge">
+
+   <title>My Page</title>
+
+   <% include ./inc/header.ejs %>
+   <% include ./inc/navbar.ejs %>
+
+
+   <style>
+   
+   body{
+   background-color: aliceblue;
+
+}
+   .jumbotron {
+   background-color: lightblue;
+}
+
+.sidenav {
+         width: 200px;
+         position: fixed;
+         z-index: 1;
+         top: 20px;
+         left: 10px;
+         background: darkkhaki;
+         overflow-x: hidden;
+         padding: 8px 0;
+      }
+
+      .sidenav a {
+         padding: 6px 20px 6px 40px;
+         text-decoration: none;
+         font-size: 50px;
+         color: black;
+         display: block;
+      }
+
+      .sidenav a:hover {
+         color: black;
+      }
+
+#body {
+   background-color: beige;
+   border: 5px}
+
+   </style>
+
+
+
+</head>
+
+<body>
+
+   <div class="container-fluid">
+      
+      <div class="jumbotron">
+         <h1>My Account</h1>
+      </div>
+
+      <br>
+
+      <div class="row">
+
+         <div class="col-sm-4">
+
+            <div id="sidenav">
+               <a href="#information">My Information</a><br>
+               <a href="#orders">Orders</a><br>
+               <a href="#friends">Friends</a><br>
+               <a href="#histoy">History</a><br>
+            </div>
+
+            <div class="col-sm-8" >
+                  <img src="cinqueterre.jpg" class="rounded-circle" alt="Cinque Terre" width="304" height="236"> 
+               </div>
+                     <p>User Id </p>
+                     <p>Email</p>
+                 
+
+
+               
+
+            </div>
+         </div>
+      </div>
+
+
+      <!-- <form action="/test/fileupload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="avatar">
+    <input type="submit" value="upload">
+
+</form> -->
+
+
+      <script>
+
+      </script>
+
+
+   </div>
+
+   <% include ./inc/footer.ejs %>
+
+</body>
+
+</html>
